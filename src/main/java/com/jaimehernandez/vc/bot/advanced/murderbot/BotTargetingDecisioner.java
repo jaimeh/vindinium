@@ -78,7 +78,10 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
 
             // We don't want to target other bots of our type
             // TODO We probably shouldn't hardcode this name
-            if(currentHero.getName().equals("Assassin Bot"))
+            if(currentHero.getName().equals("T-1000"))
+            if(currentHero.getName().equals("T-800"))
+            if(currentHero.getName().equals("T-900"))
+            if(currentHero.getName().equals("T-3000"))
                 continue;
 
             // Are they on their spawn?
