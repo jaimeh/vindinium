@@ -133,6 +133,11 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
                 }
             }
 
+            if(closestTarget.getName().equals("T-1000")) return noTargetFoundDecisioner.makeDecision(context);
+            if(closestTarget.getName().equals("T-800")) return noTargetFoundDecisioner.makeDecision(context);
+            if(closestTarget.getName().equals("T-900")) return noTargetFoundDecisioner.makeDecision(context);
+            if(closestTarget.getName().equals("T-3000")) return noTargetFoundDecisioner.makeDecision(context);
+
             GameState.Position nextMove = closestTarget.getPos();
             while (closestTarget != null && closestTargetDijkstraResult.getDistance() > 1) {
                 nextMove = closestTargetDijkstraResult.getPrevious();
