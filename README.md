@@ -32,7 +32,7 @@ To create an uber JAR:
     
 Command for running from Maven:
 
-    mvn exec:java -Dexec.mainClass='com.brianstempin.vindiniumclient.Main' -Dexec.args='YOURKEY TRAINING simple com.brianstempin.vindiniumclient.bot.RandomBot'
+    mvn exec:java -Dexec.mainClass='Main' -Dexec.args='YOURKEY TRAINING simple com.brianstempin.vindiniumclient.bot.RandomBot'
 
 #### CLI Usage
 
@@ -80,14 +80,14 @@ com.brianstempin.vindiniumclient
 Everything starts at the `Main` class.  Its responsible for instantiating the bot, a bot runner, and then running the bot.  Easy peasy.
 
 #### AdvancedBot
-com.brianstempin.vindiniumclient.bot.advanced.AdvancedBot
+AdvancedBot
 
 This interface is an improvement on `SimpleBot`.  Instad of taking a `GameState`, it takes an `AdvancedGameState`.  This enhanced game state delivers the game state in a format that is easier for the developer to deal with.
 
 For an example, take a look at `AdvancedMurderBot`.
 
 #### AdvancedGameState
-com.brianstempin.vindiniumclient.bot.advanced.AdvancedGameState
+AdvancedGameState
 
 This class extends `GameState`.  In addition to the elements in `GameState`, this new type offers a graph of the board and hash maps for each of the elements on the board to make searching easy.
 
