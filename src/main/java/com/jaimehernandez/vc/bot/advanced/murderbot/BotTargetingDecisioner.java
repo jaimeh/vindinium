@@ -37,6 +37,12 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
         for(Mine currentMine : context.getGameState().getMines().values()) {
             if(currentMine.getOwner() != null && currentMine.getOwner().isCrashed()) {
 
+                // We don't want to target other bots of our type
+                if(currentMine.getOwner().getName().equals("T-1000")) continue;
+                if(currentMine.getOwner().getName().equals("T-800")) continue;
+                if(currentMine.getOwner().getName().equals("T-900")) continue;
+                if(currentMine.getOwner().getName().equals("T-3000")) continue;
+
                 GameState.Hero target = currentMine.getOwner();
                 AdvancedMurderBot.DijkstraResult currentDijkstraResult =
                         context.getDijkstraResultMap().get(target.getPos());
