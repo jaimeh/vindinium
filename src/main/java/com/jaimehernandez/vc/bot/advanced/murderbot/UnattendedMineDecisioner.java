@@ -54,6 +54,10 @@ public class UnattendedMineDecisioner implements Decision<AdvancedMurderBot.Game
                     || mine.getOwner().getGold() > me.getGold())) {
                 targetMine = mine;
             }
+            else if(dijkstraResultMap.get(targetMine.getPosition()).getDistance()
+                    > dijkstraResultMap.get(mine.getPosition()).getDistance()) {
+                    targetMine = mine;
+            }
         }
 
         if(targetMine != null) {
