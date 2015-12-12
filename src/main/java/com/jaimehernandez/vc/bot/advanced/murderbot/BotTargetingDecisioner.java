@@ -113,6 +113,17 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
         }
 
         if(closestTarget != null) {
+
+            // Check the adjacent squares to see if a pub exists
+            Vertex currentHeroVertext = context.getGameState().getBoardGraph().get(closestTarget.getPos());
+            for(Vertex currentVertext : currentHeroVertext.getAdjacentVertices()) {
+                if(context.getGameState().getPubs().containsKey(currentVertext.getPosition())) {
+                    // Ok, no one worth attacking.
+                    logger.info("No bot worth attacking.  Deferring.");
+                    return noTargetFoundDecisioner.makeDecision(context);
+                }
+            }
+
             GameState.Position nextMove = closestTarget.getPos();
             while (closestTarget != null && closestTargetDijkstraResult.getDistance() > 1) {
                 nextMove = closestTargetDijkstraResult.getPrevious();
