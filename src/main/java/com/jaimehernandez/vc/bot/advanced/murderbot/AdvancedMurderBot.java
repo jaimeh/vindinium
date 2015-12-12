@@ -19,6 +19,8 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class AdvancedMurderBot implements AdvancedBot {
 
+    //Whatever
+
     public static class GameContext {
         private final AdvancedGameState gameState;
         private final Map<GameState.Position, DijkstraResult> dijkstraResultMap;
