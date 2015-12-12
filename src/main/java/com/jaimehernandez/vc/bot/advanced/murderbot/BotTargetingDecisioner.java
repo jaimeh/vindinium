@@ -91,14 +91,6 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
             if(currentHero.getLife() > 20 && currentHero.getLife() > me.getLife())
                 continue;
 
-            // Check the adjacent squares to see if a pub exists
-            Vertex currentHeroVertext = context.getGameState().getBoardGraph().get(currentHero.getPos());
-            for(Vertex currentVertext : currentHeroVertext.getAdjacentVertices()) {
-                if(context.getGameState().getPubs().containsKey(currentVertext.getPosition())) {
-                    continue;
-                }
-            }
-
             // Ok, we got this far...it must not be squatting.  Is it closest?
             if (closestTarget == null) {
                 closestTarget = currentHero;
@@ -106,6 +98,15 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
                 continue;
             } else if (closestTargetDijkstraResult.getDistance() >
                     currentDijkstraResult.getDistance()) {
+
+                // Check the adjacent squares to see if a pub exists
+                Vertex currentHeroVertext = context.getGameState().getBoardGraph().get(currentHero.getPos());
+                for(Vertex currentVertext : currentHeroVertext.getAdjacentVertices()) {
+                    if(context.getGameState().getPubs().containsKey(currentVertext.getPosition())) {
+                        continue;
+                    }
+                }
+
                 closestTarget = currentHero;
                 closestTargetDijkstraResult = context.getDijkstraResultMap().get(closestTarget.getPos());
             }
