@@ -19,7 +19,7 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class AdvancedMurderBot implements AdvancedBot {
 
-    //Whatever
+    //Test2
 
     public static class GameContext {
         private final AdvancedGameState gameState;
