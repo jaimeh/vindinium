@@ -19,8 +19,6 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class AdvancedMurderBot implements AdvancedBot {
 
-    //Test2
-
     public static class GameContext {
         private final AdvancedGameState gameState;
         private final Map<GameState.Position, DijkstraResult> dijkstraResultMap;
@@ -114,6 +112,7 @@ public class AdvancedMurderBot implements AdvancedBot {
                 botTargetingDecisioner);
         CombatEngagementDecisioner combatEngagementDecisioner = new CombatEngagementDecisioner(combatOutcomeDecisioner,
                 healDecisioner);
+
         BotWellnessDecisioner botWellnessDecisioner = new BotWellnessDecisioner(enRouteLootingDecisioner, combatEngagementDecisioner);
 
         this.decisioner = botWellnessDecisioner;

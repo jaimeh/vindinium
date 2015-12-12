@@ -55,7 +55,7 @@ public class BotWellnessDecisioner implements Decision<AdvancedMurderBot.GameCon
         }
 
         // Is the bot well?
-        if(context.getGameState().getMe().getLife() >= 30) {
+        if(context.getGameState().getMe().getLife() >= 40) {
             logger.info("Bot is healthy.");
             return yesDecisioner.makeDecision(context);
         }
