@@ -90,8 +90,8 @@ public class BotTargetingDecisioner implements Decision<AdvancedMurderBot.GameCo
             // Does he have more HP than we do?
             if(currentHero.getLife() > 20 && currentHero.getLife() > me.getLife())
                 continue;
-            // Does he have less money?
-            if(currentHero.getGold() < me.getGold())
+            // Does he have less than a third of my money, than he is a not a risk?
+            if(currentHero.getGold() < (me.getGold() / 3))
                 continue;
 
             // Ok, we got this far...it must not be squatting.  Is it closest?
